@@ -132,19 +132,6 @@ Version Control
 * Git
 * GitHub
 
-Project Structure
-
-Loan-Default-Prediction/
-│
-├── data/
-├── notebooks/
-├── model/
-├── app.py
-├── requirements.txt
-├── Dockerfile
-├── README.md
-└── images/
-
 Future Improvements
 
 * Improve model performance using XGBoost or LightGBM.
