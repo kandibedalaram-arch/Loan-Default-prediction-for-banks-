@@ -1,73 +1,71 @@
-# Loan Default Prediction for Banks
+Loan Default Prediction for Banks
 
-## 📌 Project Overview
+Project Overview
 
-This project focuses on predicting loan default risk for a digital lending fintech company using a dataset of 255,347 loan records. The objective is to build a machine learning framework that helps financial institutions make data-driven lending decisions and reduce credit risk.
+This project predicts loan default risk using machine learning to help financial institutions make informed lending decisions and reduce credit risk. A dataset containing 255,347 loan records was analyzed to identify key factors influencing loan defaults and build predictive models for risk assessment.
 
-The analysis identifies key risk drivers such as income level, interest rate, credit score, and employment status, and builds predictive models to estimate the probability of loan default.
+The final solution includes an end-to-end machine learning pipeline, REST API development using FastAPI, containerization with Docker, and deployment on AWS EC2.
 
----
+Business Objective
 
-## 🎯 Business Objective
+The objectives of this project are to:
 
-The primary goal of this project is to:
+* Predict whether a customer is likely to default on a loan.
+* Identify high-risk applicants before loan approval.
+* Support data-driven credit risk assessment.
+* Reduce financial losses caused by loan defaults.
 
-* Improve loan approval decision-making using predictive analytics
-* Minimize financial losses due to loan defaults
-* Identify high-risk applicants early in the lending process
-* Support data-driven credit risk policies
+Dataset Information
 
----
+* Source: Kaggle – Loan Default Dataset
+* Size: 255,347 records × 18 features
+* Target Variable: Default (0 = No Default, 1 = Default)
 
-## 🧠 Key Insights
+Features
 
-* High interest rates, low income, and unemployment are major risk indicators for loan default.
-* Default probability varies significantly across employment type, credit score, and debt-to-income ratio.
-* Model-based risk scoring can improve lending decisions and reduce non-performing loans.
+* Age
+* Income
+* Loan Amount
+* Interest Rate
+* Credit Score
+* Months Employed
+* Number of Credit Lines
+* Debt-to-Income Ratio
+* Education
+* Employment Type
+* Marital Status
+* Mortgage Status
+* Dependents
+* Loan Purpose
+* Co-signer Status
 
----
+Project Workflow
 
-## 📊 Dataset Information
+1. Data Preprocessing
 
-* **Source:** Kaggle Loan Default Dataset
-* **URL:** https://www.kaggle.com/datasets/nikhil1e9/loan-default
-* **Size:** 255,347 rows × 18 columns
-* **Target Variable:** Default (0 = No Default, 1 = Default)
-* **Default Rate:** ~12% (imbalanced dataset)
-
-### Key Features:
-
-Age, Income, LoanAmount, InterestRate, CreditScore, MonthsEmployed, NumCreditLines, DTIRatio, Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner
-
----
-
-## ⚙️ Methodology
-
-### 1. Exploratory Data Analysis (EDA)
-
-* Analyzed relationships between default rate and key financial variables
-* Identified patterns across income, credit score, employment status, and loan characteristics
-
-### 2. Data Preprocessing
-
-* Handled missing values and data inconsistencies
+* Cleaned and prepared the dataset
 * Encoded categorical variables
-* Addressed class imbalance
+* Handled class imbalance
+* Performed feature engineering
 
-### 3. Feature Engineering
+2. Exploratory Data Analysis (EDA)
 
-* Created meaningful features to improve model performance
-* Selected important predictors based on statistical and business relevance
+* Analyzed customer demographics and financial characteristics
+* Identified relationships between loan defaults and key variables
+* Visualized important trends affecting default risk
 
-### 4. Machine Learning Models
+3. Machine Learning Models
+
+The following classification algorithms were trained and compared:
 
 * Logistic Regression
 * Random Forest
 * Gradient Boosting
-* LinearSVC
+* Linear SVC
 
-  
-### 5. Model Evaluation
+4. Model Evaluation
+
+Models were evaluated using:
 
 * Accuracy
 * Precision
@@ -76,48 +74,91 @@ Age, Income, LoanAmount, InterestRate, CreditScore, MonthsEmployed, NumCreditLin
 * ROC-AUC
 * ROC Curve
 
-Logistic Regression and Linear SVC performed best with the optimal balance of Recall,F1Score and ROC-AUC.
+Logistic Regression and Linear SVC achieved the best balance between Recall, F1-Score, and ROC-AUC, making them the most suitable models for identifying high-risk loan applicants.
 
----
 
-## 🔍 Model Explainability
+Key Insights
 
-* Applied Feature Importance techniques to identify key predictors of loan default
-* Used SHAP analysis to interpret model predictions and understand feature impact
+* Low income increases the likelihood of loan default.
+* Higher interest rates are associated with increased default risk.
+* Customers with lower credit scores are more likely to default.
+* Employment status significantly impacts repayment behavior.
 
----
+Business Recommendations
 
-## 📈 Key Results
-* Identified top risk factors:
+* Implement machine learning-based risk scoring during loan approval.
+* Review high-risk applications before approval.
+* Offer additional verification or co-signer requirements for risky applicants.
+* Use predictive analytics to improve lending strategies and reduce non-performing loans.
 
-  * Income
-  * Interest Rate
-  * Credit Score
-  * Employment Status
-* Developed a risk scoring approach to support lending decisions
+Model Deployment
 
----
+The trained machine learning model was deployed as a REST API to enable real-time predictions.
 
-## 💡 Business Recommendations
+Deployment Workflow
 
-* Implement predictive risk scoring for loan approval processes
-* Use conservative thresholds for high-risk applicant identification
-* Offer co-signer or collateral-based policies for risky profiles
-* Optimize interest rates based on predicted default probability
+* Developed REST API endpoints using FastAPI.
+* Implemented request validation using Pydantic.
+* Tested API endpoints using Postman.
+* Containerized the application using Docker.
+* Deployed the Dockerized application on AWS EC2.
+* Managed version control using Git and GitHub.
 
----
+The deployed API accepts applicant details as input and returns a prediction indicating whether the customer is likely to default on the loan.
 
-## 🚀 Tools & Technologies
+Tools & Technologies
+
+Programming & Analysis
 
 * Python
 * Pandas
 * NumPy
 * Matplotlib
 * Scikit-learn
-* Seaborn
 
----
+API Development
 
-## 📌 Conclusion
+* FastAPI
+* Pydantic
+* Postman
 
-This project demonstrates how machine learning can be applied to credit risk analysis to improve lending decisions, reduce financial losses, and support data-driven banking strategies.
+Deployment
+
+* Docker
+* AWS EC2
+
+Version Control
+
+* Git
+* GitHub
+
+Project Structure
+
+Loan-Default-Prediction/
+│
+├── data/
+├── notebooks/
+├── model/
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── README.md
+└── images/
+
+Future Improvements
+
+* Improve model performance using XGBoost or LightGBM.
+* Implement model monitoring and logging.
+* Automate deployment using CI/CD pipelines.
+* Deploy using scalable cloud services such as AWS ECS or Kubernetes.
+
+ Conclusion
+
+This project demonstrates an end-to-end machine learning workflow, from data preprocessing and predictive modeling to API development and cloud deployment. It highlights the practical application of machine learning, FastAPI, Docker, and AWS EC2 to build scalable solutions for real-world credit risk assessment.
+
+Author
+
+[Your Name]
+
+* LinkedIn: Add your LinkedIn profile
+* GitHub: Add your GitHub profile
